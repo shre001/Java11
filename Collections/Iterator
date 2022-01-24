@@ -1,0 +1,85 @@
+package com.shreyas.java.Collections.Iterator;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class IteratorExample {
+
+
+	public static void main(String[] args) {
+		
+		listIterator();
+		setIterator();
+		mapIterator();
+		customListIterator();
+		
+		
+	}
+	
+	private static void customListIterator() {
+		// TODO Auto-generated method stub
+		
+		List<Integer> ls=new ArrayList<>();
+		ls.add(1);
+		ls.add(2);
+		ls.add(3);
+		
+		
+		
+		MyIterator<Integer> iter=new MyIterator<>(ls);
+		while(iter.hasNext()) {
+			System.out.println(iter.next());
+		}
+		
+	}
+
+	private static void mapIterator() {
+		// TODO Auto-generated method stub
+		Map<String,String> map=new HashMap<>();
+		map.put("Fruit1", "Orange");
+		map.put("Fruit2", "Banana");
+		
+		Iterator<String> iterator=map.keySet().iterator();
+		while(iterator.hasNext()) {
+			System.out.println(iterator.next());
+		}
+		
+		Iterator<Entry<String,String>> iterato1r=map.entrySet().iterator();
+		while(iterato1r.hasNext()) {
+			System.out.println(iterato1r.next().getValue());
+		}
+		
+		
+		
+	}
+
+	private static void listIterator() {
+		List<String> list=new ArrayList<>();
+		list.add("Orange");
+		list.add("banana");
+		list.add("pineapple");
+		
+		Iterator<String> iterator=list.iterator();
+		while(iterator.hasNext()) {
+			System.out.println(iterator.next());
+		}
+	}
+	
+	private static void setIterator() {
+		Set<String> set=new HashSet<>();
+		set.add("Orange");
+		set.add("banana");
+		set.add("pineapple");
+		
+		Iterator<String> iterator=set.iterator();
+		while(iterator.hasNext()) {
+			System.out.println(iterator.next());
+		}
+	}
+}
