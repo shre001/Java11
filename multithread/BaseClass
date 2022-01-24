@@ -1,0 +1,22 @@
+package com.shreyas.java.multithread;
+
+public class BaseClass implements Runnable {
+	
+	private int count=2;
+
+	@Override
+	public synchronized void run() {
+		// TODO Auto-generated method stub
+		for(var i=0;i<100;i++) {
+			synchronized (this) {
+				this.count++;
+			}
+			
+		}
+		
+		synchronized(this) {
+		System.out.println(Thread.currentThread().getName()+": "+this.count);}
+		
+	}
+
+}
