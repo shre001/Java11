@@ -1,0 +1,27 @@
+package com.shreyas.java.annotation;
+
+import java.lang.annotation.Annotation;
+
+@MyAnnotation(name="Shreyas",value=55)
+public class ReflectionImpl {
+	public static void main(String[] args) {
+		Class<AnnotationImpl> aClass = AnnotationImpl.class;
+		Annotation[] annotations = aClass.getAnnotations();
+		Annotation ann1=aClass.getAnnotation(MyAnnotation.class);
+
+		if(ann1 instanceof MyAnnotation){
+		    MyAnnotation myAnnotation = (MyAnnotation) ann1;
+		    System.out.println("name: " + myAnnotation.name());
+		    System.out.println("value: " + myAnnotation.value());
+		}
+		for(Annotation annotation : annotations){
+			System.out.println(annotation);
+		    if(annotation instanceof MyAnnotation){
+		        MyAnnotation myAnnotation = (MyAnnotation) annotation;
+		        System.out.println("name: " + myAnnotation.name());
+		        System.out.println("value: " + myAnnotation.value());
+		    }
+		}
+	}
+
+}
