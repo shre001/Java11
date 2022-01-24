@@ -1,0 +1,17 @@
+package com.shreyas.java.multithread;
+
+public class ThreadImpl {
+
+	public static void main(String[] args) {
+		Runnable run1= new BaseClass();
+		Runnable run2= new BaseClass();
+		
+		Thread t1=new Thread(run1,"Thread1"); 
+		Thread t2=new Thread(run1,"Thread2");
+		
+		t1.start();
+		t2.start();	
+
+		
+	}
+	}
