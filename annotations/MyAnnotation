@@ -1,0 +1,18 @@
+package com.shreyas.java.annotation;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+//@Target(ElementType.TYPE)
+@Inherited
+@Documented
+@Retention(RetentionPolicy.SOURCE)
+public @interface MyAnnotation {
+	String name() default "Shreyas";
+	int value() default 1;
+
+}
+
+
