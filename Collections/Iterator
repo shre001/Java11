@@ -69,6 +69,10 @@ public class IteratorExample {
 		while(iterator.hasNext()) {
 			System.out.println(iterator.next());
 		}
+		
+		iterator.forEachRemaining(elem->{
+			System.out.println(elem);
+		});
 	}
 	
 	private static void setIterator() {
