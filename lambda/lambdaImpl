@@ -1,0 +1,23 @@
+package com.shreyas.java.lambda;
+
+import java.util.Comparator;
+
+public class Lambda<T> {
+	
+	public static void main(String[] args) {
+		Comparator<String> comp=(o1,o2)-> o1.compareTo(o2);
+		
+		System.out.println(comp.compare("Hello", "Hello2"));
+		
+		Comparator<String> c1=new Comparator<String>() {
+			@Override
+			public int compare(String o1, String o2) {
+				return o1.compareTo(o2);
+			};
+		};
+
+			
+
+	}
+
+}
