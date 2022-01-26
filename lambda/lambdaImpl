@@ -1,13 +1,22 @@
 package com.shreyas.java.lambda;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Comparator;
 
 public class Lambda<T> {
 	
-	public static void main(String[] args) {
+	static String  x="Job";
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+		
+		//New version of lambda func Impl
 		Comparator<String> comp=(o1,o2)-> o1.compareTo(o2);
 		
 		System.out.println(comp.compare("Hello", "Hello2"));
+		
+		
+		//Old version of lambda func Impl
 		
 		Comparator<String> c1=new Comparator<String>() {
 			@Override
@@ -16,8 +25,18 @@ public class Lambda<T> {
 			};
 		};
 
+		
+		//Calling default function of interface
+		// referencing member variable  inside lambda function.
+		MyFuncInterface obj=(String h)->System.out.println("Hello"+x);
+		obj.read("h");
+		
+		//Calling static method of interface
+		obj.wirte("Hello Shreyas", new FileOutputStream("t.txt"));
+		MyFuncInterface.type("MyName");
 			
 
 	}
+
 
 }
