@@ -1,0 +1,53 @@
+package com.shreyas.java.stream;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
+import com.shreyas.java.lambda.Lambda;
+
+public class StreamImpl {
+	
+	public static class Employee{
+		 public String salary;
+		public Employee(String value) {
+			// TODO Auto-generated constructor stub
+			salary=value;
+		}
+	}
+
+	public static void main(String[] args) {
+		List<String> ls=new ArrayList<>();
+		ls.add("One");
+		ls.add("two");
+		
+		Stream<String> st=ls.stream();
+		
+		ls.stream()
+		.map(elem->elem.toLowerCase())
+		.map(elem->elem.toUpperCase())
+		.forEach(elem->System.out.println(elem));
+		
+		ls.stream()
+		.map(String::toLowerCase)
+		.map(String::toLowerCase)
+		.forEach(System.out::println);
+		
+		
+		st.forEach(name->System.out.println(name));
+		
+		
+		List<Employee> employees=new ArrayList<>();
+		employees.add(new Employee("10"));
+		employees.add(new Employee("20"));
+		
+		int sum=employees.stream().map(employee->employee.salary)
+		.map(Integer::parseInt)//(i)->Integer.parseInt(i)
+		.reduce(0,(tempSum,v)->tempSum+v);
+		
+		
+		System.out.println(sum);
+		
+		
+	}
+}
