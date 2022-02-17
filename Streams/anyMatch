@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+class Plant {
+
+}
+
+class Tulip extends Plant{
+	
+}
+
+public class Ques8 {
+	private static Plant plant;
+	public static void main(String[] args) {
+		 plant =new Tulip();
+		feed(plant);
+		
+		var list=new ArrayList<>(List.of(1,2,3,4,5));
+		
+		List<Integer> result=list.stream().filter(e->e<5).collect(Collectors.toList());
+		boolean result1=list.stream().allMatch(e->e<4);
+		System.out.println(result.toString());
+		
+		// create a list of integers
+	    List<Integer> numbers = Arrays.asList(2,3,4,5);
+		 // demonstration of reduce method
+	    int even =
+	       numbers.stream().filter(x->x%2==0).reduce(0,(ans,i)-> ans+i);
+	  
+	    System.out.println(even);
+		
+	}
+	
+	static void feed(Plant plant) {
+		if(plant instanceof Tulip) {
+			System.out.println("Take extra care");
+		}
+		
+		plant=null;
+	 	
+	}
+	
+}
+
