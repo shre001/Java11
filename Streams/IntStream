@@ -1,0 +1,22 @@
+import java.util.stream.IntStream;
+
+public abstract class Ques6{
+	public static String convert(int x) {
+		return Integer.toString(x);
+		
+	}
+	
+	public static int convertInt(int x) {
+		return 2;
+		
+	}
+	
+	public static void main(String [] args) {
+		/*
+		 * for (int i=1;i<11;i++) { System.out.println(convert(i)); }
+		 */
+		
+		IntStream.rangeClosed(1, 10).mapToObj(Ques6::convert).forEach(System.out::println);
+		IntStream.rangeClosed(1, 10).map(Ques6::convertInt).forEach(System.out::println);
+	}
+}
