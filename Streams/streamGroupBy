@@ -1,0 +1,64 @@
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Optional;import java.util.stream.Collectors;
+
+public class Ques5 {
+	private String name;
+	private String neighbor;
+	private int salary;
+	
+	Ques5(String n, String neig, int sal){
+		name=n;
+		neighbor=neig;
+		salary=sal;
+	}
+    
+	public static void main(String[] args) {
+		List<Ques5> ls= new ArrayList<Ques5>();
+		Ques5 obj1= new Ques5("s","ny",10);
+		Ques5 obj2= new Ques5("sh","ne",20);
+		Ques5 obj3= new Ques5("sh","ne",40);
+		ls.add(obj1);
+		ls.add(obj2);
+		ls.add(obj3);
+		
+		
+		Map<String, Optional<Ques5>> m=  ls.stream().collect(Collectors.groupingBy
+				(Ques5::getNeighbor,Collectors.maxBy(Comparator.comparing(Ques5::getSalary))));
+		
+
+		Iterator<Entry<String, Optional<Ques5>>> it= m.entrySet().iterator();
+		while(it.hasNext()) {
+			var value=it.next();
+			System.out.println(value.getKey());
+			value.getValue().ifPresent(e->System.out.println(e.getSalary()));
+		}
+		
+		Iterator<String> it2= m.keySet().iterator();
+		while(it2.hasNext()) {
+			System.out.println(it2.next());
+			//it.next().getValue().ifPresent(System.out::println);
+		}
+		
+		
+		
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getSalary() {
+		return salary;
+	}
+
+	public String getNeighbor() {
+		return neighbor;
+	}
+}
+
+
